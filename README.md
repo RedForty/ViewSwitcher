@@ -1,11 +1,11 @@
-** mmViewSelect **
+**mmViewSelect**
 
 ## To Install
 
 Put the mmViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
 ***
 
-###[Usage](#usage)
+### [Usage](#usage) ###
 ---
 
 Now you need to make two hotkey commands.
