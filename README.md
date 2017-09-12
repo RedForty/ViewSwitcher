@@ -37,6 +37,8 @@ When ready, hit Save. Now assign your hotkeys.
 Hold the hotkey you assigned and left click (and hold) in any viewport - standard markingMenu summoning procedure.\
 Letting go on any box will change the current panel to look through that camera.
 
+If you quickly tap the hotkey, it will switch to the previous camera you were looking through (in the current viewPane).
+
 By default, the 'shotCam' will be the 'persp' camera.
 As soon as you choose the optionBox next to shotCam, the current viewport camera will be assigned as the shotCam.
 
