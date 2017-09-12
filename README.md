@@ -1,34 +1,34 @@
 ## About
-__mmViewSelect__ is a quick little markingmenu that solves two problems:
+__dkViewSelect__ is a quick little markingmenu that solves two problems:
 * One-button menu for camera switching (including a custom shotCam)
 * One button press to hotswitch back to the previous camera
 
 Each viewport will remember it's last active camera and allow you to hotswitch between the two.
 
 ## Install
-Download and put the mmViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
+Download and put the dkViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
 
 ## Setup
 You'll need to make two hotkey commands. One for the press and one for the release.\
 Open the maya hotkey editor and open the Runtime Command Editor.
 Hit 'New' and give it a name like:
 
-<b>mmViewSelect_PRESS</b>
+<b>dkViewSelect_PRESS</b>
 
 Paste this code into the command area:
 ```
-import mmViewSelect
-mmViewSelect.press()
+import dkViewSelect
+dkViewSelect.press()
 ```
 Make sure to switch the language to <b>python</b>.\
 When ready, hit Save.
 
 Hit 'New' again and this time name it:
 
-<b>mmViewSelect_RELEASE</b>
+<b>dkViewSelect_RELEASE</b>
 
 ```
-mmViewSelect.release()
+dkViewSelect.release()
 ```
 When ready, hit Save. Now assign your hotkeys.
 
