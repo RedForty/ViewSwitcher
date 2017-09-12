@@ -3,7 +3,7 @@
 # To Install #
 
 Put the mmViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
-
+***
 **[Usage](#usage)**
 ---
 
