@@ -1,24 +1,21 @@
+
 ## About
+
 __dkViewSelect__ is a quick little markingmenu that solves two problems:
 * One-button menu for camera switching (including a custom shotCam)
 * One button press to hotswitch back to the previous camera
 
 Each viewport will remember it's last active camera and allow you to hotswitch between the two.
 
-***
-
-Huge shoutout to [Vasil Shotarov](http://bindpose.com) for writing up these awesome articles to help get me through.
 * http://bindpose.com/custom-marking-menu-maya-python
 * http://bindpose.com/custom-marking-menus-maya-editors
 * http://bindpose.com/custom-hotkey-marking-menu-maya/
-
-
 
 ## Install
 Download and put the dkViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
 
 ## Setup
-You'll need to make two hotkey commands. One for the press and one for the release.\
+You'll need to make two hotkey commands. One for the _press_ and one for _release_.\
 Open the maya hotkey editor and open the Runtime Command Editor.
 Hit 'New' and give it a name like:
 
