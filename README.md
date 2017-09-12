@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ### mmViewSelect #
+=======
+# mmViewSelect #
+>>>>>>> master
 
 # To Install #
 
