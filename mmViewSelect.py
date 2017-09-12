@@ -13,6 +13,7 @@ global SHOT_CAM
 MENU_NAME        = "mmViewSelect"
 TIME_START       = 0.0
 SHOT_CAM         = "persp"
+CUSTOM_SHOT_CAM  = "shotCam"
 CURRENT_PANEL    = ""
 MM_REGISTRY      = {}
 
@@ -71,7 +72,7 @@ class ViewportMarkingMenu(object):
                               ctrlModifier        = 0,
                               altModifier         = 0,
                               shiftModifier       = 0,
-                              parent              = "viewPanes",
+                              parent              = "viewPanes", # This might bite me in the ass
                               postMenuCommandOnce = 1,
                               postMenuCommand     = self._buildMarkingMenu)
 
@@ -85,7 +86,7 @@ class ViewportMarkingMenu(object):
         cmds.menuItem(p=menu, l="side", rp="E", c=sideView)
         cmds.menuItem(p=menu, l="front", rp="S", c=frontView)#, i="mayaIcon.png")
         cmds.menuItem(p=menu, l="top", rp="W", c=topView)
-        cmds.menuItem(p=menu, l="shotCam", rp="NW", c=camView)
+        cmds.menuItem(p=menu, l=CUSTOM_SHOT_CAM, rp="NW", c=camView)
         cmds.menuItem(p=menu, ob=1, c=setShotCam)
 
         ## List
@@ -128,11 +129,6 @@ def perspView(*args):
     if isPanel():
         cmds.lookThru('persp')
 
-def camView(*args):
-    global SHOT_CAM
-    if isPanel():
-        cmds.lookThru(SHOT_CAM)
-
 def frontView(*args):
     if isPanel():
         cmds.lookThru('front')
@@ -145,10 +141,17 @@ def topView(*args):
     if isPanel():
         cmds.lookThru('top')
 
+def camView(*args):
+    global SHOT_CAM
+    if isPanel():
+        cmds.lookThru(SHOT_CAM)
+
 def setShotCam(*args):
+    global CUSTOM_SHOT_CAM
     global SHOT_CAM
     if isPanel():
         SHOT_CAM = cmds.lookThru(q=True)
+        CUSTOM_SHOT_CAM = SHOT_CAM
 
 def _powerWordKILL(*args):
     # Just in case I need to reset
