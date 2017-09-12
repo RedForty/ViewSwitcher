@@ -7,6 +7,7 @@ __dkViewSelect__ is a quick little markingmenu that solves two problems:
 
 Each viewport will remember it's last active camera and allow you to hotswitch between the two.
 
+Huge shoutout to [Vasil Shotarov](http://bindpose.com) for writing up these awesome articles to help get me through.
 * http://bindpose.com/custom-marking-menu-maya-python
 * http://bindpose.com/custom-marking-menus-maya-editors
 * http://bindpose.com/custom-hotkey-marking-menu-maya/
