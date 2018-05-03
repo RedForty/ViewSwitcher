@@ -10,7 +10,7 @@ import time
 global TIME_START
 global SHOT_CAM
 
-MENU_NAME        = "dkViewSelect"
+MENU_NAME        = "ViewSwitcher"
 TIME_START       = 0.0
 SHOT_CAM         = "persp"
 CUSTOM_SHOT_CAM  = "shotCam"
