@@ -20,7 +20,7 @@ You'll need to make two hotkey commands. One for the _press_ and one for _releas
 Open the maya hotkey editor and open the Runtime Command Editor.
 Hit 'New' and give it a name like:
 
-<b>dkViewSelect_PRESS</b>
+<b>viewSelect_PRESS</b>
 
 Paste this code into the command area:
 ```
