@@ -1,7 +1,7 @@
 
 ## About
 
-__dkViewSelect__ is a quick little markingmenu that solves two problems:
+__ViewSwitcher__ is a quick little markingmenu that solves two problems:
 * One-button menu for camera switching (including a custom shotCam)
 * One button press to hotswitch back to the previous camera
 
@@ -24,18 +24,18 @@ Hit 'New' and give it a name like:
 
 Paste this code into the command area:
 ```
-import dkViewSelect
-dkViewSelect.press()
+import viewSelect
+viewSelect.press()
 ```
 Make sure to switch the language to <b>python</b>.\
 When ready, hit Save.
 
 Hit 'New' again and this time name it:
 
-<b>dkViewSelect_RELEASE</b>
+<b>viewSelect_RELEASE</b>
 
 ```
-dkViewSelect.release()
+viewSelect.release()
 ```
 When ready, hit Save. Now assign your hotkeys.
 
