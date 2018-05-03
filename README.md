@@ -13,7 +13,7 @@ Huge shoutout to [Vasil Shotarov](http://bindpose.com) for writing up these awes
 * http://bindpose.com/custom-hotkey-marking-menu-maya/
 
 ## Install
-Download and put the dkViewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
+Download and put the viewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
 
 ## Setup
 You'll need to make two hotkey commands. One for the _press_ and one for _release_.\
