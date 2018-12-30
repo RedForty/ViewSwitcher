@@ -10,7 +10,7 @@ import time
 global TIME_START
 global SHOT_CAM
 
-MENU_NAME        = "ViewSwitcher"
+MENU_NAME        = "ViewSwitcherMenu"
 TIME_START       = 0.0
 SHOT_CAM         = "persp"
 CUSTOM_SHOT_CAM  = "shotCam"
@@ -33,8 +33,13 @@ class ViewportMarkingMenu(object):
         self._build()
 
     def camToggle(self):
+        current_panel = isPanel()
         if isPanel():
-            cmds.lookThru(self.toggleCamQueue[1])
+            view = mui.M3dView.getM3dViewFromModelPanel(current_panel)
+            camDag = api.MFnDagNode(self.toggleCamQueue[1])
+            camDagPath = camDag.getPath()
+            view.setCamera(camDagPath)
+            view.refresh() # Without this, nothing ever happens
 
     def _setupCamQueue(self):
         # Start with a working camera queue
@@ -42,10 +47,12 @@ class ViewportMarkingMenu(object):
         return [currentCamera, currentCamera]
 
     def _cameraChangeCallback(self, panel, curCamMObj, clientDataObj):
-        fnCam = api.MFnCamera(curCamMObj) # perspShape
-        parentObj = api.MFnTransform(fnCam.parent(0)) # persp
+        # curCamMObj is an mObject
+        fnCam = api.MFnCamera(curCamMObj)
+        camDag = api.MFnDagNode(curCamMObj)
+        camDagPath = camDag.getPath()
         self.toggleCamQueue.pop(-1)
-        self.toggleCamQueue.insert(0, parentObj.name())
+        self.toggleCamQueue.insert(0, camDagPath) # New method using api
 
     def _installCallback(self):
         currentPanel = isPanel()
@@ -78,7 +85,11 @@ class ViewportMarkingMenu(object):
 
     def _getCurrentCamera(self):
         if isPanel():
-            return cmds.lookThru(q=True)
+            view = mui.M3dView.active3dView()
+            cam = view.getCamera()
+            camDag = api.MFnDagNode(cam)
+            camDagPath = camDag.getPath()
+            return camDagPath
 
     def _buildMarkingMenu(self, menu, parent):
         ## Radial positioned
@@ -115,11 +126,11 @@ def release(*args):
     if CURRENT_PANEL:
         if cmds.popupMenu(CURRENT_PANEL+MENU_NAME, ex=1):
             cmds.deleteUI(CURRENT_PANEL+MENU_NAME)
-        if (time.time() - TIME_START) < 0.15:
+        if (time.time() - TIME_START) < 0.15: # Quick button press
             MM_REGISTRY[CURRENT_PANEL].camToggle()
 
 def isPanel(*args):
-    currentPanel = cmds.getPanel(wf=True)
+    currentPanel = cmds.getPanel(wf=True) # Working with names is ok here
     if cmds.getPanel(to=currentPanel) == 'modelPanel':
         return currentPanel
     else:
