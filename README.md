@@ -13,31 +13,33 @@ Huge shoutout to [Vasil Shotarov](http://bindpose.com) for writing up these awes
 * http://bindpose.com/custom-hotkey-marking-menu-maya/
 
 ## Install
-Download and put the viewSelect.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
+Download and put the viewSwitcher.py file in your <MY_DOCUMENTS>/maya/scripts/ folder.
 
 ## Setup
 You'll need to make two hotkey commands. One for the _press_ and one for _release_.\
 Open the maya hotkey editor and open the Runtime Command Editor.
 Hit 'New' and give it a name like:
 
-<b>viewSelect_PRESS</b>
+<b>viewSwitcher_PRESS</b>
 
 Paste this code into the command area:
 ```
-import viewSelect
-viewSelect.press()
+import viewSwitcher
+viewSwitcher.press()
 ```
 Make sure to switch the language to <b>python</b>.\
 When ready, hit Save.
 
 Hit 'New' again and this time name it:
 
-<b>viewSelect_RELEASE</b>
+<b>viewSwitcher_RELEASE</b>
 
 ```
-viewSelect.release()
+viewSwitcher.release()
 ```
 When ready, hit Save. Now assign your hotkeys.
+Make sure to set the release key to the same as the press key but using the dropdown menu to set it to 'release' mode.
+![hotkeyEditor](https://i.imgur.com/B5bzlYLl.png)
 
 ## Usage
 
