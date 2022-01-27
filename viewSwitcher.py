@@ -38,6 +38,7 @@ class ViewportMarkingMenu(object):
             view = mui.M3dView.getM3dViewFromModelPanel(current_panel)
             camDag = api.MFnDagNode(self.toggleCamQueue[1])
             camDagPath = camDag.getPath()
+            # print(camDag.name())
             view.setCamera(camDagPath)
             view.refresh() # Without this, nothing ever happens
 
@@ -58,7 +59,7 @@ class ViewportMarkingMenu(object):
         currentPanel = isPanel()
         if currentPanel:
             if not currentPanel in self.callbackRegistry:
-                print "Added callback for %s" % currentPanel
+                # print("Added callback for %s" % currentPanel)
                 self.callbackRegistry[currentPanel] = mui.MUiMessage.addCameraChangedCallback(currentPanel, self._cameraChangeCallback)
 
     def _removeCallback(self):
@@ -153,9 +154,9 @@ def topView(*args):
         cmds.lookThru('top')
 
 def camView(*args):
-    global SHOT_CAM
+    # global SHOT_CAM
     if isPanel():
-        cmds.lookThru(SHOT_CAM)
+        cmds.lookThru(CUSTOM_SHOT_CAM)
 
 def setShotCam(*args):
     global CUSTOM_SHOT_CAM
